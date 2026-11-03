@@ -1,0 +1,21 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('registerForm');
+    const message = document.getElementById('message');
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const login = document.getElementById('login').value;
+        const password = document.getElementById('password').value;
+
+        const result = registerUser(login, password);
+        if (result.success) {
+            message.style.color = '#4cd137';
+            message.textContent = result.message;
+            setTimeout(() => {
+                window.location.href = 'profile.html';
+            }, 1000);
+        } else {
+            message.textContent = result.message;
+        }
+    });
+});
