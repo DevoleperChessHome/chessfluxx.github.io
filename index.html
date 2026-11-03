@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Шахматный сайт</title>
+    <style>
+        /* Сброс стандартных отступов браузера */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Задаем высоту на весь экран */
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            /* 
+             * Фон создается через градиент: от почти черного к черному.
+             * Это дает "нежную" глубину цвета.
+             */
+            background-image: linear-gradient(to bottom right, #0a0a0a, #000000);
+            
+            /* 
+             * Включаем анимацию для фона. 
+             * Если в будущем мы решим менять тему (например, на светлую), 
+             * цвет будет перетекать плавно, а не дергаться.
+             */
+            transition: background-image 2.5s ease-in-out;
+            
+            /* 
+             * flexbox центрирует всё содержимое сайта по центру экрана.
+             * В будущем здесь появится шахматная доска.
+             */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* 
+         * Демо-элемент, чтобы видеть, что плавность работает. 
+         * В финальной версии сайта это будет шахматная доска.
+         */
+        .placeholder {
+            color: #ffffffb3;
+            font-size: 24px;
+            text-align: center;
+            padding: 40px;
+            border: 1px solid #ffffff20;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+        }
+
+        /* Плавное появление текста */
+        .placeholder p {
+            opacity: 0.8;
+            transition: opacity 0.5s ease;
+        }
+
+        .placeholder:hover p {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="placeholder">
+        <p>Черный плавный экран</p>
+        <p>Основа для lichess.org</p>
+    </div>
+</body>
+</html>
